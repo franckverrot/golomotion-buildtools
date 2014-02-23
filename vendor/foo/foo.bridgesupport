@@ -1,0 +1,7 @@
+<?xml version='1.0'?>
+<signatures version='1.0'>
+<function name='foo'>
+<arg type='i' declared_type='int'/>
+<retval type='i' declared_type='int'/>
+</function>
+</signatures>
