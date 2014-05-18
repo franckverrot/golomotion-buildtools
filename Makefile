@@ -6,12 +6,14 @@ ll:
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Os -S -arch x86_64 -emit-llvm foo.c -o foo-64.ll
 
 s: 
+	export PATH=/usr/local/llvm/3.0/bin/:$PATH
 	#llc -march x86 foo.ll -o foo.s
 	#llc -march x86-64 foo.ll -o foo-64.s
 	#/Library/RubyMotion/bin/llc -march arm foo-ios.ll -o foo-ios.s
 	llc -march x86 omg.ll -o foo.s
 	llc -march x86-64 omg.ll -o foo-64.s
-	/Library/RubyMotion/bin/llc -march arm omg.ll -o foo-ios.s
+	#/Library/RubyMotion/bin/llc -march arm omg.ll -o foo-ios.s
+	llc -march arm omg.ll -o foo-ios.s
 
 o: 
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc  -arch armv7 -c foo-ios.s -o foo-ios.o
